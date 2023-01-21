@@ -9,7 +9,7 @@ def show():
 
     # /!\ Summary about the scores on the test /!\
     # ge
-    df_all = pd.read_pickle('/data/processed/df_objectives.pkl')
+    df_all = pd.read_pickle('data/processed/df_objectives.pkl')
 
     df_summary = df_all.groupby('student_name')['score','time'].agg(['sum','mean'])
 
@@ -40,7 +40,7 @@ def show():
     df_writing_man = app_utils.manipulate_writing(df_writing)
     df_overview_writing = df_writing_man.groupby(['Criterion'])['Grade'].agg(['sum','count','mean','std'])
 
-    df_discursive = pd.read_pickle('/data/processed/df_discursive.pkl')
+    df_discursive = pd.read_pickle('data/processed/df_discursive.pkl')
     df_overview_discursive = df_discursive.groupby(['subject'])['total score'].agg(['sum','count','mean','std'])
     
     col1, col2 = st.columns(2)
